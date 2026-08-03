@@ -1,0 +1,3 @@
+display_name: Character Power Status Analyst
+short_description: Analyze status, leverage, dependency, access, and power shifts between characters.
+default_prompt: Analyze the power and status relations in this cast and identify the next credible shift.

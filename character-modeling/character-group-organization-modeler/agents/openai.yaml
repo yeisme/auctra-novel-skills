@@ -1,0 +1,3 @@
+display_name: Character Group Organization Modeler
+short_description: Model roles, authority, trust, coordination, and conflict inside character groups.
+default_prompt: Model this group's roles, authority, trust links, and likely coordination failures.

@@ -1,0 +1,3 @@
+display_name: Character Emotion Regulation Modeler
+short_description: Model how a character notices, suppresses, expresses, and repairs emotional reactions.
+default_prompt: Model this character's emotional regulation sequence across the given scene or relationship.

@@ -1,0 +1,3 @@
+display_name: Character Dramatic Stress Tester
+short_description: Stress-test character choices, limits, contradictions, and failure modes in dramatic situations.
+default_prompt: Stress-test this character through the specified conflict and report credible choices and breaking points.

@@ -1,0 +1,3 @@
+display_name: Character Evidence Profiler
+short_description: Profile character claims, history, behavior, and contradictions using traceable evidence.
+default_prompt: Build an evidence profile for this character and separate observed facts from inference.

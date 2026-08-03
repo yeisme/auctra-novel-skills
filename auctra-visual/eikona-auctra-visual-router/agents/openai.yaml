@@ -1,0 +1,3 @@
+display_name: Auctra Visual Router
+short_description: Route Auctra visual requests through the correct Eikona and review handoff workflow.
+default_prompt: Route this Auctra visual request to the smallest valid Eikona workflow and define its review handoff.

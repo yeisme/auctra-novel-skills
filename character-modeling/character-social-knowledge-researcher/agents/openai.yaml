@@ -1,0 +1,3 @@
+display_name: Character Social Knowledge Researcher
+short_description: Map what characters know, assume, misunderstand, and can credibly learn from their social world.
+default_prompt: Map this character's social knowledge, blind spots, assumptions, and credible learning path.

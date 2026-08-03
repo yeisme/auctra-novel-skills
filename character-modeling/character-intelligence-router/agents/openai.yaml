@@ -1,0 +1,3 @@
+display_name: Character Intelligence Router
+short_description: Route character intelligence tasks to the smallest compatible modeling workflow.
+default_prompt: Route this character-design request to the smallest compatible intelligence modeling workflow.

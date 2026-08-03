@@ -1,0 +1,3 @@
+display_name: Character Cognition Decision Modeler
+short_description: Model how a character perceives evidence, weighs options, and makes decisions under pressure.
+default_prompt: Model this character's evidence processing and decisions across the requested scenes.

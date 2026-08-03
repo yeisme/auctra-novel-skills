@@ -1,0 +1,3 @@
+display_name: Character Culture Class Context Modeler
+short_description: Build character behavior from culture, class, family, institution, and historical context.
+default_prompt: Model this character's culture, class, and social context without reducing them to stereotypes.
