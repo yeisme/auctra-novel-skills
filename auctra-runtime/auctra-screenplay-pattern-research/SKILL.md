@@ -1,6 +1,6 @@
 ---
 name: auctra-screenplay-pattern-research
-description: Use when analyzing, grouping, auditing, or adapting collections of Chinese screenplay, short-drama, novel, DOCX, Markdown, or reviewed video-to-script samples for Auctra and Auctra Studio, including source-safe symbol restoration, semantic block overlays, calibration/holdout/exploratory splits, Pattern Lens evidence, dramatic recipe promotion, blind evaluation, and accepted screenplay handoff to Scaena.
+description: Use when analyzing, grouping, auditing, or adapting collections of Chinese screenplay, short-drama, novel, DOCX, Markdown, or reviewed video-to-script samples for Auctra, including source-safe symbol restoration, semantic block overlays, calibration/holdout/exploratory splits, Pattern Lens evidence, dramatic recipe promotion, blind evaluation, and accepted screenplay handoff to Scaena.
 ---
 
 # Auctra 剧本样本研究
@@ -11,7 +11,7 @@ description: Use when analyzing, grouping, auditing, or adapting collections of 
 
 - 源文件或 Auctra corpus refs，以及来源、权限、只读状态和转换方式。
 - 研究目标：格式恢复、题材分组、模式研究、recipe、盲测、原创剧本或生产交接。
-- 可选：当前 Auctra project、Studio session、Anatomia analysis 或 Scaena handoff refs。
+- 可选：当前 Auctra project、Anatomia analysis 或 Scaena handoff refs。
 
 ## 先读取的项目事实
 
@@ -19,10 +19,8 @@ description: Use when analyzing, grouping, auditing, or adapting collections of 
 
 - `data/screenwriting-media-creation/设计/样本分组与评测矩阵.md`
 - `data/screenwriting-media-creation/设计/编剧符号与语义块规范.md`
-- `data/screenwriting-media-creation/设计/Auctra-Studio-样本驱动创作闭环.md`
 - `openspec/changes/auctra-sample-driven-screenwriting-intelligence-v1/`
 - `cli/auctra/openspec/changes/auctra-screenplay-corpus-intelligence-v1/`
-- `client/auctra-studio/openspec/changes/auctra-studio-pattern-research-workspace-v1/`
 
 需要通用类型、符号、Pattern Lens 和晋级规则时，读取 [research-contract.md](references/research-contract.md)。
 
@@ -52,12 +50,12 @@ description: Use when analyzing, grouping, auditing, or adapting collections of 
 ```text
 source-faithful text
   -> semantic overlay candidate
-  -> Studio icon + label presentation
+  -> consumer icon + label presentation
 ```
 
 - Source 层字节不变。
 - Overlay 保存 source span/digest、source marker、normalized kind、attributes、confidence、review status 和 repair reason。
-- Studio 使用 Lucide icon、短标签、tooltip 与 aria label；图标不是唯一语义。
+- Consumer 使用 Lucide icon、短标签、tooltip 与 aria label；图标不是唯一语义。
 - 现有 Fountain enum 保持稳定；episode、cast、prop、VO/OS、media ref 等留在 additive overlay/attributes。
 - Unknown 保持 unsupported/needs-review，不静默转成 action。
 

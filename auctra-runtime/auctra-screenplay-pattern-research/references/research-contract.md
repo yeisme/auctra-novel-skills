@@ -70,4 +70,4 @@ Anatomia reviewed video observations (可选)
   -> Scaena ProductionGraph/ShotIntent/ShotGenerationSpec/production review
 ```
 
-Studio 只消费 Auctra typed contract 和提交 review/link/eval 命令；不拥有 source、recipe 或 canon。
+Approved consumer 只消费 Auctra typed contract 和提交 review/link/eval 命令；不拥有 source、recipe 或 canon。

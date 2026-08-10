@@ -62,7 +62,7 @@ auctra visual export-brief <brief-id> --for eikona --to .auctra/exports/<brief-i
    - 独立 Auctra `short_video_storyboard` planning：可让 `eikona-ultrawide-storyboard-director` 输出 planning board。
    - Scaena `shot_visual|episode_visual|cover_visual|motion_visual`：先要求 `$scaena-subject-asset-readiness` 返回 current passed preflight；没有 preflight 时停止，不输出 production prompt 或真实生成命令。
 
-5. 在 Eikona 导入、验证和运行。默认真实远程模型是 `openai:gpt-image-2`；本地验证可用 fixture workflow 或 dry run。
+5. 在 Eikona 导入、验证和运行。默认真实远程模型是 `openai/gpt-5.4-image-2`；`gpt-5.4-image-2` 与 `gpt-image-2` 是兼容短别名；本地验证可用 fixture workflow 或 dry run。
 
 ```bash
 eikona workflow import auctra -f .auctra/exports/<brief-id>.json --out .eikona/workflows/<brief-id>.workflow.yaml --json
@@ -79,7 +79,7 @@ eikona feedback accept <run_id> --artifact <artifact_id> --reason composition --
 
 ```bash
 eikona generate --model fixture:image --input prompts/auctra/<asset-type>/<brief-id>/prompts/01-hero.md --dry-run --json
-eikona generate --model openai:gpt-image-2 --input prompts/auctra/<asset-type>/<brief-id>/prompts/01-hero.md --json
+eikona generate --use-channel openai --model openai/gpt-5.4-image-2 --input prompts/auctra/<asset-type>/<brief-id>/prompts/01-hero.md --json
 ```
 
 多个候选使用一个由 Eikona 管理的 runbook，其 `defaults.prompt_file`、`jobs[].prompt_file` 或 `matrix.prompt_files` 指向该集合；先确认每个 prompt 都只含已允许的 Auctra canon，再检查计划并运行：
@@ -114,7 +114,7 @@ auctra visual accept <asset-id> <candidate-id> --json
 - Auctra visual acceptance 只说明 source-side candidate 可用；Scaena production context 仍需要独立 human freeze、shot binding、generation preflight 和 consistency acceptance。
 - 所有 agent 消费都使用 `--json` 或 `--agent`，不解析 human output。
 - 不把原始提示词、供应商载荷、私密素材或完整思维链写入结构化资产。
-- 不新增 Eikona 默认图像模型；真实远程示例使用 `openai:gpt-image-2`。
+- 不新增 Eikona 默认图像模型；真实远程示例使用 `openai/gpt-5.4-image-2`，兼容短别名不写入新文档。
 
 ## 边界
 

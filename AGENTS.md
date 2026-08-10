@@ -2,6 +2,8 @@
 
 本仓库只维护 Auctra 与中文长篇小说 Skills，不维护 Auctra CLI 源码、小说正文、项目正典或运行数据库。
 
+Auctra 产品实现归 `cli/auctra` CLI/API owner；本 Skills 源仓库不创建独立 GUI、浏览器客户端或新的产品入口。需要继续实现 Auctra runtime 时，先阅读 `cli/auctra/docs/claude-next-goal.md` 与对应 OpenSpec。
+
 ## 目录边界
 
 - `auctra-runtime/`：Auctra 产品运行、项目启动、路由、市场研究与审稿优化。
