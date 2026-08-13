@@ -23,11 +23,10 @@ Auctra 产品实现归 `cli/auctra` CLI/API owner；本 Skills 源仓库不创�
 
 ## 验证
 
-宿主 `yeisme-agent` 工作区负责把本仓库作为源模块接入并运行：
+本仓库先运行独立结构校验：
 
 ```bash
-scripts/skills.sh validate-custom
-scripts/skills.sh validate-profiles
-scripts/skills.sh sync-subprojects
-scripts/skills.sh validate-subprojects-runtime
+python3 scripts/validate_skills.py
 ```
+
+宿主工作区的 profile、同步和 runtime 校验属于宿主适配层，不应写死在本仓库 Skill 的可移植工作流中。

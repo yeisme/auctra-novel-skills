@@ -73,7 +73,7 @@ description: Use when drafting, continuing, or rewriting a Chinese novel chapter
 
 ## 验证
 
-- 有章节文件时可运行 `python3 .skills/yeisme/creative-writing/chinese-novel-orchestrator/scripts/check_chinese_chapter_wordcount.py <chapter.md> 3000`。
+- 有章节文件时可运行 `python3 novel-writing/chinese-novel-orchestrator/scripts/check_chinese_chapter_wordcount.py <chapter.md> 3000`。
 - 检查开场压力、场景转折、人物知识边界、章尾钩子和连续性 delta。
 - 检查章节目标、冲突升级、信息增量、人物推进、连续性 delta、章尾钩子和 risk_flags 是否完整。
 - 未通过连续性或字数检查时，不把候选稿说成最终稿。

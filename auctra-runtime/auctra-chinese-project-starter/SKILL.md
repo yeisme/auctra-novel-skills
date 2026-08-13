@@ -67,4 +67,4 @@ auctra review list --status pending --json
 ## 验证
 
 - 项目命令改动后运行窄 Go 测试和 `openspec validate auctra-i18n-workspace-layout --strict`。
-- skill/profile 改动后运行 `scripts/skills.sh validate-custom`；profile 变更后继续运行 `validate-profiles`、`sync-subprojects`、`validate-subprojects-runtime`。
+- Skill 改动后运行 `python3 scripts/validate_skills.py`；宿主 profile、同步和 runtime 校验由接入该仓库的宿主项目负责。

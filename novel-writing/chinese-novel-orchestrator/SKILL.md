@@ -89,6 +89,6 @@ description: Use when planning, drafting, continuing, revising, decomposing, or 
 
 ## 验证
 
-- 章节长度可用 `python3 .skills/yeisme/creative-writing/chinese-novel-orchestrator/scripts/check_chinese_chapter_wordcount.py <chapter.md> 3000` 检查。
+- 章节长度可用 `python3 novel-writing/chinese-novel-orchestrator/scripts/check_chinese_chapter_wordcount.py <chapter.md> 3000` 检查。
 - 检查是否读取了任务所需 reference，而不是全量加载。
 - 确认所有 blocking 风险都有下一步处理者。

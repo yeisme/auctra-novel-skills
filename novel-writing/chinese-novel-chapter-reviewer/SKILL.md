@@ -62,5 +62,5 @@ description: Use when reviewing a Chinese novel chapter candidate against chapte
 
 - 检查验收表是否覆盖章节目标、冲突升级、信息增量、人物推进、连续性 delta、章尾钩子和 risk_flags。
 - 检查每个问题是否有 owner skill 和最小修复动作。
-- 有章节文件时可运行 `python3 .skills/yeisme/creative-writing/chinese-novel-orchestrator/scripts/check_chinese_chapter_wordcount.py <chapter.md> 3000`。
+- 有章节文件时可运行 `python3 novel-writing/chinese-novel-orchestrator/scripts/check_chinese_chapter_wordcount.py <chapter.md> 3000`。
 - 未满足 blocking 项时，不能把章节候选稿说成最终可发布稿。

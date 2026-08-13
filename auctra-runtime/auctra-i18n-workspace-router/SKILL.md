@@ -44,4 +44,4 @@ auctra chapter export markdown
 ## 验证
 
 - 对 CLI 行为改动，运行对应窄测试和 `openspec validate auctra-i18n-workspace-layout --strict`。
-- 对 skill/profile 改动，运行 `scripts/skills.sh validate-custom`；涉及 profile 时继续运行 profile/runtime sync 验证。
+- 对 Skill 改动运行 `python3 scripts/validate_skills.py`；涉及 profile 时由宿主项目继续运行其 profile/runtime sync 验证。
