@@ -11,7 +11,7 @@ description: Use when configuring, migrating, diagnosing, documenting, or routin
 
 - 用户目标、项目路径、已有 `project next/status/init` 输出、locale/layout 需求。
 - 可选的 Auctra JSON：`locale`、`layout_preset`、`display_directories`、`machine_root`、`display_path`。
-- 当前任务阶段：新建项目、迁移旧项目、解释目录、导入素材/章节、导出、TUI/agent 路由或文档同步。
+- 当前任务阶段：新建项目、迁移旧项目、解释目录、导入素材/章节、导出、agent 路由或文档同步。
 
 ## 路由
 

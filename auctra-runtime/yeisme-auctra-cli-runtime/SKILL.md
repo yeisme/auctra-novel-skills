@@ -1,18 +1,18 @@
 ---
 name: yeisme-auctra-cli-runtime
-description: Use when changing, testing, reviewing, documenting, or designing the Auctra CLI-first text creation product runtime under cli/auctra, including product workflows, CLI/TUI behavior, approved Service API projections, app-service boundaries, screenplay corpus intelligence, material/brief/review/export contracts, runtime providers, run evidence, and independent-client or Scaena handoffs.
+description: Use when changing, testing, reviewing, documenting, or designing the Auctra CLI-first text creation product runtime under cli/auctra, including product workflows, CLI behavior, approved Service API projections, app-service boundaries, screenplay corpus intelligence, material/brief/review/export contracts, runtime providers, run evidence, and independent-client or Scaena handoffs.
 ---
 
 # Yeisme Auctra CLI Runtime
 
-Use this skill for `cli/auctra`, the local-first text creation product engine whose owned interactive surfaces are CLI/TUI and whose stable projections may support approved independent clients.
+Use this skill for `cli/auctra`, the local-first text creation product engine whose owned interactive surface is CLI and whose stable projections may support approved independent clients.
 
 ## Product Identity Lock
 
-Auctra is a specialized text creation product engine, not a generic agent and not a provider router. CLI/TUI remain its owned direct user interfaces; product PRDs, workflow design, and client contract gaps are still in scope even when frontend implementation belongs to a separate approved client.
+Auctra is a specialized text creation product engine, not a generic agent and not a provider router. CLI remains its owned direct user interface; product PRDs, workflow design, and client contract gaps are still in scope even when frontend implementation belongs to a separate approved client.
 
 ```text
-External agent / script -> Auctra CLI/TUI or approved typed API -> shared app service -> evidence -> review -> version/export
+External agent / script -> Auctra CLI or approved typed API -> shared app service -> evidence -> review -> version/export
 ```
 
 Auctra owns materials, briefs, text runs, review items, versions, export manifests, and redaction. Codex, Claude, Cohors, and Yeisme subagents are callers of `auctra`; they are not embedded providers inside Auctra.
@@ -31,7 +31,6 @@ Auctra owns materials, briefs, text runs, review items, versions, export manifes
 - Approved operation catalog and client-safe projections: `internal/operation`; do not create network-only business logic.
 - Runtime provider contract and runtime selection: `internal/runtime`.
 - Cohors fixture/subprocess integration only: `internal/cohors`; do not modify `cli/cohors`.
-- TUI workbench: `internal/tui`, `internal/tui/pages`, and `internal/workspace`.
 - Persistent index: `internal/store` with SQLite/GORM.
 
 ## Non-Negotiable Invariants
@@ -39,7 +38,7 @@ Auctra owns materials, briefs, text runs, review items, versions, export manifes
 - **Human review first:** generation creates pending review items. Only `review accept` or `review partial` may create accepted versions. No `--auto-accept`, unattended overwrite, or publish bypass.
 - **Shared text engine:** novel chapters, Xiaohongshu notes, WeChat articles, short-video scripts, and screenplay scenes use one text unit / brief / run evidence / review / export core. Do not create independent per-kind generator stacks.
 - **Local-first evidence:** project state, materials, drafts, versions, run receipts, review decisions, and export manifests stay under `.auctra/` by default.
-- **Direct UI ownership:** CLI/TUI remain Auctra's direct interfaces. A versioned Service API is allowed only when an approved OpenSpec projects the same application operations to an independent client; Auctra still owns no Web UI, business BFF, scraper, platform login, provider SDK, or auto-publisher.
+- **Direct UI ownership:** CLI remains Auctra's direct interface. A versioned Service API is allowed only when an approved OpenSpec projects the same application operations to an independent client; Auctra still owns no Web UI, business BFF, scraper, platform login, provider SDK, or auto-publisher.
 - **Structured asset boundary:** agents may write user prose files, but must mutate `.auctra/project.yaml`, `.auctra/profile/**`, `.auctra/runs/**`, `.auctra/review/**`, `.auctra/exports/**`, and SQLite rows only through Auctra commands or app services.
 - **Accepted-only production handoff:** Auctra exports canonical accepted screenplay semantics and source provenance. It never manufactures Scaena `ShotIntent`, `ShotGenerationSpec`, generation bundles, provider jobs, or downstream acceptance.
 
