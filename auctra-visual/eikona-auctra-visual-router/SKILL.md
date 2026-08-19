@@ -65,12 +65,12 @@ auctra visual export-brief <brief-id> --for eikona --to .auctra/exports/<brief-i
 5. 在 Eikona 导入、验证和运行。默认真实远程模型是 `openai/gpt-5.4-image-2`；`gpt-5.4-image-2` 与 `gpt-image-2` 是兼容短别名；本地验证可用 fixture workflow 或 dry run。
 
 ```bash
-eikona workflow import auctra -f .auctra/exports/<brief-id>.json --out .eikona/workflows/<brief-id>.workflow.yaml --json
-eikona workflow validate -f .eikona/workflows/<brief-id>.workflow.yaml --json
-eikona workflow run -f .eikona/workflows/<brief-id>.workflow.yaml --background --json
-eikona worker daemon --once --max-active-runs 2 --json
-eikona review packet <run_id> --json
-eikona feedback accept <run_id> --artifact <artifact_id> --reason composition --json
+eikona workflow import auctra -f .auctra/exports/<brief-id>.json --out .eikona/workflows/<brief-id>.workflow.yaml --agent
+eikona workflow validate -f .eikona/workflows/<brief-id>.workflow.yaml --agent
+eikona workflow run -f .eikona/workflows/<brief-id>.workflow.yaml --background --agent
+eikona worker daemon --once --max-active-runs 2 --agent
+eikona review packet <run_id> --agent
+eikona feedback accept <run_id> --artifact <artifact_id> --reason composition --agent
 ```
 
 ### 提示词集合出图
@@ -78,16 +78,16 @@ eikona feedback accept <run_id> --artifact <artifact_id> --reason composition --
 当一个 brief 需要多个可比较视觉方向时，加载 `eikona-file-prompt-workflow`，按 `prompts/auctra/<asset-type>/<brief-id>/` 建立集合 README、独立候选 prompt 文件和 runbook。单一候选可直接加载文件：
 
 ```bash
-eikona generate --model fixture:image --input prompts/auctra/<asset-type>/<brief-id>/prompts/01-hero.md --dry-run --json
-eikona generate --use-channel openai --model openai/gpt-5.4-image-2 --input prompts/auctra/<asset-type>/<brief-id>/prompts/01-hero.md --json
+eikona generate --model fixture:image --input prompts/auctra/<asset-type>/<brief-id>/prompts/01-hero.md --dry-run --agent
+eikona generate --use-channel openai --model openai/gpt-5.4-image-2 --input prompts/auctra/<asset-type>/<brief-id>/prompts/01-hero.md --agent
 ```
 
 多个候选使用一个由 Eikona 管理的 runbook，其 `defaults.prompt_file`、`jobs[].prompt_file` 或 `matrix.prompt_files` 指向该集合；先确认每个 prompt 都只含已允许的 Auctra canon，再检查计划并运行：
 
 ```bash
-eikona run -f prompts/auctra/<asset-type>/<brief-id>/runbook.yaml --dry-run --json
-eikona run -f prompts/auctra/<asset-type>/<brief-id>/runbook.yaml --background --json
-eikona wait <run_id> --json
+eikona run -f prompts/auctra/<asset-type>/<brief-id>/runbook.yaml --dry-run --agent
+eikona run -f prompts/auctra/<asset-type>/<brief-id>/runbook.yaml --background --agent
+eikona watch <run_id> --events
 ```
 
 每个 job 的 `prompt`、`prompt_file`、`prompt_ref` 互斥，且路径相对于 runbook 解析。prompt 文件是创作输入；runbook、run evidence、反馈和 handoff 是结构化资产，必须经 Eikona/Auctra CLI 写入。集合中的每个文件都必须可回溯到已接受的 brief/source refs，不能包含未授权剧透、私密素材或隐藏 canon。
@@ -112,7 +112,7 @@ auctra visual accept <asset-id> <candidate-id> --json
 - 对 Auctra 视觉请求，Eikona 是唯一默认出图路径：先 brief/review/export，再运行 Eikona；仅当 Eikona 不可用且用户明确批准 fallback 时才换用其他工具。
 - Story Bible 的时间线、背景、地图、人物图和视觉锚点必须从 Auctra accepted canon / source refs 生成 brief；Eikona 产物不能反向成为 canon，只能作为 candidate/reference 回到 Auctra。
 - Auctra visual acceptance 只说明 source-side candidate 可用；Scaena production context 仍需要独立 human freeze、shot binding、generation preflight 和 consistency acceptance。
-- 所有 agent 消费都使用 `--json` 或 `--agent`，不解析 human output。
+- 例行 agent 消费使用 `--agent`，观察非终态 run 用 `--events`，脚本/CI 用 `--json --compact`（共存期内裸 `--json` 仍是 legacy full），取证用 `--json --full`；不解析 human output。
 - 不把原始提示词、供应商载荷、私密素材或完整思维链写入结构化资产。
 - 不新增 Eikona 默认图像模型；真实远程示例使用 `openai/gpt-5.4-image-2`，兼容短别名不写入新文档。
 
