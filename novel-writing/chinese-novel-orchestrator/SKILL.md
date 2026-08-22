@@ -83,6 +83,8 @@ description: Use when planning, drafting, continuing, revising, decomposing, or 
 - 句级 guard（`auctra chapter naturalness guard add|list|rebind|remove`）命中的 read-only 单元仍接受完整审计但不得改写；总编排和任何 worker 都不改 guard 句，相关修改只能走 `patch-check`/`patch-apply` fail-closed 路径。
 - 对白活人感仍归 `screenplay-scene-writer`（含 references/dialogue-live-test）；`natural-writing-editor` 只做叙述层终稿，不越界重写对白。
 
+- 角色化 voice 编排：项目绑定角色策略后，按场景类型分派约束——narration（叙述基线）、scene（动作/紧张段节奏）、dialogue（对白层），由章节写手用 `auctra voice brief --json --role <r>` 取各自约束；角色切换时机是创作决策，总编排不自动切换角色。
+- 修订分诊用 `auctra chapter draft diff` 的 `role_groups` 分组视图定位问题层，再把对应层交给正确 worker；定位到 role 不等于授权绕过 guard 句。
 ## 边界
 
 - 不伪造用户经历、数据、采访、截图、平台反馈或真实发布结果。

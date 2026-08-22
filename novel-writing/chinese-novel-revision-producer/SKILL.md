@@ -50,6 +50,8 @@ description: Use when planning or executing Chinese novel revision passes across
 - 自然度相关修订候选必须携带 finding refs 和 guard refs；不引用 `auctra chapter naturalness` receipt 与 guard 的泛泛改稿不算一轮修订。
 - 每轮修订用 `auctra chapter draft diff <chapter-id|candidate-id> --json` 的 resolved/persisted/introduced 输出，配对 before/after receipts 作为 lineage 证据；缺 diff 与 receipt 证据时不声称修复完成。
 - 自然度正文修改只经 `auctra chapter naturalness patch-check`/`patch-apply` 进入 successor draft：patch 绑定 candidate/receipt/policy/guard digest，只改 finding 授权 span；不绕过 patch 服务、不改 guard 命中句、不直接写 canonical。
+- `auctra chapter naturalness` 的 findings 带 role（narration/dialogue）时，修订候选引用 finding refs 要连同 role 标注，并用 `auctra chapter draft diff` 的 `role_groups` 定位问题层；role 不扩大 patch 授权 span，也不构成绕过 guard 的理由。
+- 跨项目复用声音策略走 `auctra voice strategy export --to`（目标已存在即失败，不覆盖）和 `auctra voice strategy import --from`（同名不同 digest 拒绝）；策略资产只提供特征与节奏约束，引用它不豁免上面的 patch/guard 流程。
 
 ## 边界
 

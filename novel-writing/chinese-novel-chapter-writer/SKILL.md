@@ -63,6 +63,7 @@ description: Use when drafting, continuing, or rewriting a Chinese novel chapter
 - Auctra 中文项目中，章节候选稿只能作为 review candidate 或人工草稿 handoff；不要直接覆盖 `.auctra/manuscript/**`。
 - 写章前建议 `auctra gate check --before chapter_write --json`；生成后建议 `auctra review list --status pending --json`，采纳必须由 `review accept|partial` 完成。
 - Auctra 项目内写章前必须先绑定声音锚点：用 `auctra voice show` 核对、`auctra voice set`/`auctra voice patterns add` 声明并用 `auctra voice compile` 固化，需要声音上下文时用 `auctra voice brief`；voice 未绑定时不开写。
+- 按场景类型取角色化约束：叙述段用 `auctra voice brief --json --role narration` 取叙述基线，紧张/动作段用 `--role scene` 取节奏约束，对白密集场景用 `--role dialogue` 取对白层策略；对白角色策略只提供约束，不代评对白活人感。
 - 首章/首集必须先走 scratch proof-slice：在 `auctra scratch`（generic_text）准备 3 个结构不同的 voice 策略候选，逐个用 `auctra scratch validate <ref> --candidate <c> --profile novel_naturalness_v1 --with-naturalness` 验证后 `scratch present`，由用户选择；只有 `auctra voice patterns import --from-scratch <ref> --candidate <c>` 把胜出策略回写 voice.yaml 后才允许批量扩写。
 - 自然度修复按 loop policy 单轮推进：每轮至多执行一份已批准 patch（`auctra chapter naturalness patch-check` 通过后 `patch-apply` 一次），读取 guard refs、不碰 read-only 句；不自主连打多轮补丁，也不整章重写。
 - 输出 handoff 时标明 phase=`chapter_write`、artifact=`chapter_candidate`、gate=`review_required`、display_path（例如 `章节/ch_001.md`）和连续性 delta。
