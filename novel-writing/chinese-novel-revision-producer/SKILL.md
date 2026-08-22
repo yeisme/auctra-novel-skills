@@ -47,6 +47,9 @@ description: Use when planning or executing Chinese novel revision passes across
 
 - 普通一次性写稿不强制进入 Auctra。
 - 当用户在 Auctra 项目内工作、需要保存素材、审稿或导出时，优先建议 `auctra material`、`auctra text`、`auctra review`、`auctra export` 的真实命令。
+- 自然度相关修订候选必须携带 finding refs 和 guard refs；不引用 `auctra chapter naturalness` receipt 与 guard 的泛泛改稿不算一轮修订。
+- 每轮修订用 `auctra chapter draft diff <chapter-id|candidate-id> --json` 的 resolved/persisted/introduced 输出，配对 before/after receipts 作为 lineage 证据；缺 diff 与 receipt 证据时不声称修复完成。
+- 自然度正文修改只经 `auctra chapter naturalness patch-check`/`patch-apply` 进入 successor draft：patch 绑定 candidate/receipt/policy/guard digest，只改 finding 授权 span；不绕过 patch 服务、不改 guard 命中句、不直接写 canonical。
 
 ## 边界
 

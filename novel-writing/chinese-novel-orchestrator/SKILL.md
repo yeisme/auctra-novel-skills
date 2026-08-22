@@ -79,6 +79,9 @@ description: Use when planning, drafting, continuing, revising, decomposing, or 
 - 输出 Auctra 下一步时标明 phase、artifact、gate 和 display_path；不要把 `display_path` 当作 `.auctra/` 机器路径。
 - Auctra 项目内的 pending review、候选稿对比、缺陷矩阵、accept/reject/partial 建议不要由总编排直接完成，先交给 `auctra-novel-review-orchestrator`。
 - Auctra 项目内多轮优化默认采用：`chinese-novel-context-pack-builder` -> `chinese-novel-chapter-writer` -> `auctra-novel-review-orchestrator` -> `chinese-novel-state-ledger-updater` -> `auctra-novel-optimization-loop`，中间所有持久化状态变更都走 Auctra CLI。
+- 自然度循环按 loop policy 推进：`auctra chapter naturalness` 的 depth schedule 与 repair round 上限（0..3，三轮硬上限）只能用显式命令推进（`--advance-audit` 下钻、`--allow-next-round` 开新轮），不自主连跑；`natural-writing-editor` 的叙述层诊断结论经 `--findings-file`（`auctra.naturalness_findings.v1`）回传后才进入修复。
+- 句级 guard（`auctra chapter naturalness guard add|list|rebind|remove`）命中的 read-only 单元仍接受完整审计但不得改写；总编排和任何 worker 都不改 guard 句，相关修改只能走 `patch-check`/`patch-apply` fail-closed 路径。
+- 对白活人感仍归 `screenplay-scene-writer`（含 references/dialogue-live-test）；`natural-writing-editor` 只做叙述层终稿，不越界重写对白。
 
 ## 边界
 
